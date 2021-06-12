@@ -1,0 +1,30 @@
+From bc06a73d07e1c97c81216f81d5609739a773ea5f Mon Sep 17 00:00:00 2001
+From: Ben Greear <greearb@candelatech.com>
+Date: Fri, 11 Jun 2021 16:53:36 -0700
+Subject: [PATCH 1/6] dependencies:  Comment out broken which which logic
+
+This lets me compile on Fedora-34
+
+Signed-off-by: Ben Greear <greearb@candelatech.com>
+---
+ include/prereq-build.mk | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/prereq-build.mk b/include/prereq-build.mk
+index 86c22f7c95..03a8ab5082 100644
+--- a/include/prereq-build.mk
++++ b/include/prereq-build.mk
+@@ -166,8 +166,8 @@ $(eval $(call SetupHostCommand,file,Please install the 'file' package, \
+ $(eval $(call SetupHostCommand,rsync,Please install 'rsync', \
+ 	rsync --version </dev/null))
+ 
+-$(eval $(call SetupHostCommand,which,Please install 'which', \
+-	which which | grep which))
++#$(eval $(call SetupHostCommand,which,Please install 'which', \
++#	which which | grep which))
+ 
+ $(STAGING_DIR_HOST)/bin/mkhash: $(SCRIPT_DIR)/mkhash.c
+ 	mkdir -p $(dir $@)
+-- 
+2.31.1
+
